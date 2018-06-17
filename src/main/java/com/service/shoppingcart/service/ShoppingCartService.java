@@ -3,9 +3,9 @@ package com.service.shoppingcart.service;
 import java.io.IOException;
 import java.util.List;
 
-import com.service.shoppingcart.entities.Cart;
-import com.service.shoppingcart.entities.ItemCart;
 import com.service.shoppingcart.externalservice.Item;
+import com.service.shoppingcart.model.entities.Cart;
+import com.service.shoppingcart.model.entities.ItemCart;
 
 /*
  * Interface ShoppingCartService that provides the logic of the shopping car
@@ -16,11 +16,13 @@ public interface ShoppingCartService {
 
     Item getArticlesById(int id) throws IOException;
 
-    Cart createCart(ItemCart itemCart);
+    Cart createCart(Cart Cart);
 
-    Cart addItemCart(int cartId, ItemCart itemCart);
+    void addItemCart(Cart cartId, ItemCart itemCart);
 
-    Cart removeItemCart(int casrtId, int itemId);
+    void removeItemCart(Cart castId, int itemId);
 
-    double getTotalAmount(int casrtId);
+    Cart getCartById(int cartId);
+    
+    void clearCartById(Cart cartId);
 }
